@@ -1,0 +1,169 @@
+/*
+   QT Stylesheet to make Quassel fit better with Gnome3
+   ====================================================
+
+   I stole these colours from a vim-config:
+   -----------------------------------------
+
+   Adwaita:
+
+   - cool-fg       #000000
+   - cool-bg       #EDEDED  <-- window bg
+   - cool-grey     #DEDFDF
+   - cool-green-0  #4CB64A
+   - cool-yellow-0 #FEFFBF
+   - cool-yellow-1 #F8D00E
+   - cool-red-0    #f5666d
+   - cool-pink-0   #F74D97
+   - cool-pink-1   #FA519A
+   - cool-pink-2   #FD8DBD
+   - cool-purple-0 #a8799c
+   - cool-blue-0   #5179B5
+   - cool-blue-1   #4F78B5
+   - cool-blue-2   #1C3C79
+
+   and these were hand-picked:
+   ---------------------------
+
+   - scrollbar-bg: #D6D6D6
+   - scrollbar-handle: #9B9D9E
+   - input - border: #a7aba7
+
+   reference material:
+   -------------------
+
+   - http://qt-project.org/doc/qt-5.0/stylesheet-examples.html
+   - http://qt-project.org/doc/qt-4.8/qpalette.html
+*/
+
+Palette {
+   link: #4E93DC; link-visited: #417BB8;
+
+   window: #EDEDED; window-text: #000000; text: #000000;
+
+   button: #EDEDED;
+   button-text: #000000;
+
+   light: #F5F5F5; /* Lighter than Button color */
+   midlight: #F2F2F2; /* Between Button and Light */
+   dark: #D4D4D4; /* Darker than Button*/
+   mid: #E0E0E0; /* Between Button and Dark */
+   shadow: #333333; /* A very dark color. By default, the shadow color is Qt::black. */
+
+   highlight: #4A90D9;
+   highlighted-text: #ffffff;
+}
+
+QMenuBar { border-bottom: none; }
+QMenuBar::item { background: #EDEDED; }
+QMenuBar::item:selected { background: #EDEDED; } /* when selected using mouse or keyboard */
+QMenuBar::item:pressed { background: #ffffff; border-top-left-radius: 3px; border-top-right-radius: 3px; }
+
+QMenu {
+  background: white;
+  color: black;
+  border-top: none;
+}
+QMenu::item:selected { background: #4A90D9; color: #ffffff; }
+QTreeView::item:selected { background: #4A90D9; color: #ffffff; }
+QTreeView::branch:selected { background: #4A90D9; color: #ffffff; }
+
+
+/* FIXME if only I could move the scrollbar... I would put it inside the ChatView. */
+QScrollBar {
+   border: 3px solid #D6D6D6;
+   background: #D6D6D6;
+}
+
+QScrollBar::handle {
+   background: #9B9D9E;
+   border: 4px solid #9B9D9E;
+   border-radius: 4px;
+}
+
+QScrollBar::handle:hover {
+   background: #828586;
+   border: 4px solid #828586;
+   border-radius: 4px;
+}
+
+QScrollBar::handle:pressed {
+   background: #4A90D9;
+   border: 4px solid #4A90D9;
+   border-radius: 4px;
+}
+
+QScrollBar:vertical { width: 14px; }
+QScrollBar::handle:vertical { min-height: 20px; }
+QScrollBar::add-line:vertical { height: 0; background: none; }
+QScrollBar::sub-line:vertical { height: 0; background: none; }
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical { height: 0; background: none; }
+
+QScrollBar:horizontal { height: 14px; }
+QScrollBar::handle:horizontal { min-width: 20px; }
+QScrollBar::add-line:horizontal { background: none; }
+QScrollBar::sub-line:horizontal { background: none; }
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal { background: none; }
+
+
+ChatView {
+   border-top: 1px solid #a7aba7;
+   border-bottom: 1px solid #a7aba7;
+   border-left: 1px solid #a7aba7;
+   border-right: none;
+   border-top-left-radius: 2px;
+   border-bottom-left-radius: 2px;
+   background: #ffffff;
+}
+
+
+ChatLine#join { foreground: #4cb64a; }
+ChatLine#part { foreground: #f5666d; }
+ChatLine#kick { foreground: #ff0000; }
+ChatLine#kill { foreground: #ff0000; }
+
+ChatLine#action { foreground: black; font-style: italic; }
+
+ChatLine#nick { foreground: #5179B5; }
+ChatLine#topic { foreground: #5179B5; }
+ChatLine#mode { foreground: #444444; }
+
+ChatLine#server { foreground: #444444; }
+ChatLine#notice { foreground: #444444; }
+ChatLine#daychange { foreground: #777; }
+ChatLine#info { foreground: #444444; }
+ChatLine#error { foreground: #ff4444; }
+
+ChatLine#netsplit-join { foreground: #ff0000; }
+ChatLine#netsplit-quit { foreground: #ff0000; }
+
+BufferView {
+   background: #EDEDED;
+   border: none;
+}
+
+NickView {
+   background: #EDEDED;
+   border: none;
+}
+
+StyledLabel#topicLabel {
+   border: none;
+   margin: 0 0 0 8px;
+   background: #EDEDED;
+}
+
+QTextEdit {
+   min-height: 22px;
+   margin-right: 8px;
+}
+
+MultiLineEdit {
+   height: 22px;
+   /*margin-left: 8px; */
+   margin-right: 14px;
+   margin-bottom: 4px;
+   margin-top: 0px;
+   border: 1px solid #a7aba7;
+   border-radius: 2px;
+}
